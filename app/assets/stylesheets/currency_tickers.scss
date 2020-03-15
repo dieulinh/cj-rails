@@ -1,0 +1,65 @@
+.btn {
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 0.0625rem rgba(36,28,21,0.4);
+  color: #0a19d6;
+  min-width: 7.5rem;
+  padding: .8125rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 1.3em;
+  &:hover {
+    background-color: #e4e1db;
+    border-color: blue;
+  }
+}
+.currency-page {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  .coin-title {
+    border-top: 1px solid rgba(128, 128, 128, 0.85);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.85);
+    background: #fefffe;
+    font-weight: 700;
+  }
+  .currency-row {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    height: 60px;
+    margin: 5px;
+    padding: 5px;
+    line-height: 55px;
+  }
+  .history-link {
+    background-color: #446d3a24;
+    cursor: pointer;
+    &:hover {
+      background-color: #3fa3c16e;
+      font-style: italic;
+    }
+    &.active {
+      font-variant: quote($string: "");
+      background: #d3ef6b;
+    }
+  }
+  .pd-20 {
+    padding: 0px 20px 20px 20px;
+    max-height: 250px;
+    overflow-y: scroll;
+  }
+  .history-title {
+    // display: flex;
+    // justify-content: center;
+    margin-top: 0px;
+    font-weight: 600;
+    width: calc(80% - 45px);
+    height: 42px;
+    padding-top: 10px;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.85);
+  }
+}
