@@ -12,7 +12,7 @@
     </div>
     <div v-for="currency in currencies" :key="currency.id">
       <div class="currency-row history-link" :class="{ active: currency.currency_name==activeCoin }" @click="getHistories(currency.currency_name)">
-        <div>{{currency.currency_name}}</div>
+        <div class="link">{{currency.currency_name}}</div>
         <div>{{currency.bid}}</div>
         <div>{{currency.ask}}</div>
         <div>{{currency.last}}</div>
@@ -27,7 +27,7 @@
         </div>
         
         <div class="currency-row" v-for="history in histories" :key="'history'+history.id">
-          <div>{{history.currency_name}}</div>
+          <div> # {{history.id}}</div>
           <div>{{history.bid}}</div>
           <div>{{history.ask}}</div>
           <div>{{history.last}}</div>

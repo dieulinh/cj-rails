@@ -32,9 +32,16 @@
     padding: 5px;
     line-height: 55px;
   }
+  .link {
+    text-decoration: underline;
+    font-weight: 800;
+  }
   .history-link {
-    background-color: #446d3a24;
+    background-color: #f5ffde;
     cursor: pointer;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+    margin-bottom: 5px;
     &:hover {
       background-color: #3fa3c16e;
       font-style: italic;
