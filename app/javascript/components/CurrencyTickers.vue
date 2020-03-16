@@ -25,7 +25,6 @@
           <div>Last price</div>
           <div>Date time</div>
         </div>
-        
         <div class="currency-row" v-for="history in histories" :key="'history'+history.id">
           <div> # {{history.id}}</div>
           <div>{{history.bid}}</div>
@@ -51,8 +50,13 @@ export default {
       this.activeCoin = null;
     },
     getHistories(coinName) {
+      console.log(this.activeCoin);
       this.activeCoin = this.activeCoin!=coinName ? coinName : null;
-      this.$store.dispatch('getHistories', coinName);
+      if (this.activeCoin)
+      {
+        this.$store.dispatch('getHistories', this.activeCoin);
+      }
+      
     }
   },
   computed: {
@@ -63,7 +67,6 @@ export default {
       return this.$store.state.capture_status;
     },
     currencies() {
-      console.log(this.$store.state.currencies);
       return this.$store.state.currencies;
     }
   },

@@ -33,7 +33,7 @@ module V1
       desc 'History currency endpoint'
       get '/:currency_name' do
         currency_name = params[:currency_name]
-        present CurrencyTicker.where(currency_name: currency_name).order('created_at DESC')
+        present CurrencyTicker.where(currency_name: currency_name).order('created_at DESC'), status: 200
       end
     end
   end

@@ -25,10 +25,15 @@ const actions = {
   async getHistories({commit}, coinName) {
     try {
       let currencyHistoryUrl = `${process.env.ROOT_API}/currency_tickers/${coinName}`;
-      
       let response = await axios.get(currencyHistoryUrl);
       console.log(response.data);
-      commit("histories", response.data);
+      if (response.status == 200) 
+      {
+        commit("histories", response.data);
+      } else {
+        commit("histories", []);
+      }
+      
     } catch (exception) {
       console.error(exception);
     }
