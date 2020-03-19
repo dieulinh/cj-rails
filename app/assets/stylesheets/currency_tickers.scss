@@ -17,6 +17,12 @@
   flex-flow: column nowrap;
   margin-left: 10%;
   margin-right: 10%;
+  .ck-coins {
+    list-style-type: none;
+    li {
+      list-style-type: none;
+    }
+  }
 
   .coin-title {
     border-top: 1px solid rgba(128, 128, 128, 0.85);

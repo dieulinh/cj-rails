@@ -3,6 +3,16 @@
     <div class="capture-button">
       <button @click="capture()" class="btn">Capture</button>
     </div>
+    <ul class="ck-coins">
+      <li v-for="coin in coins" :key="coin.coin">
+        <input class="" type="checkbox"
+              :name="coin.coin"
+              :value="coin.coin" v-model="coin.active">
+        
+        <label :for="coin.coin"> {{coin.coin}}</label><br>
+      </li>
+      
+    </ul>
     <div class="coin-title currency-row">
       <div>Coin Name</div>
       <div>Bid</div>
@@ -41,12 +51,23 @@ import Vuex from 'vuex';
 export default {
   data(){
     return {
-      activeCoin: null
+      activeCoin: null,
+      coins: [
+        {
+          coin: 'BTHAUD',
+          active: true
+        },
+        {
+          coin: 'ETHAUD',
+          active: true
+        }
+      ]
     };
   },
   methods: {
     capture() {
-      this.$store.dispatch('capturePrices', 'ETHAUD-BTCAUD');
+      let activeList = this.coins.filter((a) => (a.active));
+      this.$store.dispatch('capturePrices', activeList.map((el)=>(el.coin)).join('-'));
       this.activeCoin = null;
     },
     getHistories(coinName) {
